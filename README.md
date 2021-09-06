@@ -13,7 +13,7 @@ npm i discord-gamecord
 ```
 - İçin Discord.js v12: npm i discord-gamecord@old
 
-## **✨ Features**
+## **✨ Özellikleri**
 
 - Süper basit ve kullanımı kolay.
 - Başlangıç ​​dostu.
@@ -80,4 +80,4 @@ client.login('DISCORD_BOT_TOKEN');
 <img src="https://cdn.discordapp.com/attachments/818900078077018162/868061592871383060/example2.png">
 
 ## **❔ Destek**
-<a href="https://discord.gg/AnUXS6z5tY"><img src="https://invidget.switchblade.xyz/GaczkwfgV9" alt="Discord"></a>
+<a href="https://discord.gg/AnUXS6z5tY"><img src="https://invidget.switchblade.xyz/AnUXS6z5tY" alt="Discord"></a>
