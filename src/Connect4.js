@@ -10,7 +10,7 @@ module.exports = class Connect4Game {
         if (!options.message) throw new TypeError('NO_MESSAGE: Lütfen bir mesaj argümanı sağlayın')
         if (typeof options.message !== 'object') throw new TypeError('INVALID_MESSAGE: Geçersiz Discord Mesajı nesnesi sağlandı.')
 
-        if(!options.opponent) throw new TypeError('NO_OPPONENT: Please provide an opponent arguement')
+        if(!options.opponent) throw new TypeError('NO_OPPONENT: Lütfen bir rakip argümanı sağlayın')
         if (typeof options.opponent !== 'object') throw new TypeError('INVALID_OPPONENT: Geçersiz Discord Kullanıcı nesnesi sağlandı.')
         
         if (!options.embed) options.embed = {};
