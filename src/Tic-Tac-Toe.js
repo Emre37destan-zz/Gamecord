@@ -8,48 +8,48 @@ const PLAYER_2 = 2;
 
 class TicTacToe {
     constructor(options = {}) {
-		if (!options.message) throw new TypeError('NO_MESSAGE: Please provide a message arguement')
-        if (typeof options.message !== 'object') throw new TypeError('INVALID_MESSAGE: Invalid Discord Message object was provided.')
-        if(!options.opponent) throw new TypeError('NO_OPPONENT: Please provide an opponent arguement')
-        if (typeof options.opponent !== 'object') throw new TypeError('INVALID_OPPONENT: Invalid Discord User object was provided.')
+		if (!options.message) throw new TypeError('NO_MESSAGE: Lütfen bir mesaj argümanı sağlayın')
+        if (typeof options.message !== 'object') throw new TypeError('INVALID_MESSAGE: Geçersiz Discord Mesajı nesnesi sağlandı.')
+        if(!options.opponent) throw new TypeError('NO_OPPONENT: Geçersiz Discord Mesajı nesnesi sağlandı.Geçersiz Discord Mesajı nesnesi sağlandı.')
+        if (typeof options.opponent !== 'object') throw new TypeError('INVALID_OPPONENT: Geçersiz Discord Kullanıcı nesnesi sağlandı.')
         
         if (!options.embed) options.embed = {};
         if (!options.embed.title) options.embed.title = 'Tic Tac Toe';
-        if (typeof options.embed.title !== 'string')  throw new TypeError('INVALID_TITLE: Embed Title must be a string.')
+        if (typeof options.embed.title !== 'string')  throw new TypeError('INVALID_TITLE: Yerleştirme Başlığı bir dize olmalıdır.')
 
         if (!options.embed.color) options.embed.color = '#5865F2';
-        if (typeof options.embed.color !== 'string')  throw new TypeError('INVALID_COLOR: Embed Color must be a string.')
+        if (typeof options.embed.color !== 'string')  throw new TypeError('INVALID_COLOR: Embed Color bir dize olmalıdır.')
         
 
         if (!options.xEmoji) options.xEmoji = '❌';
-        if (typeof options.xEmoji !== 'string')  throw new TypeError('INVALID_EMOJI: xEmoji should be a string.')
+        if (typeof options.xEmoji !== 'string')  throw new TypeError('INVALID_EMOJI: xEmoji bir dize olmalıdır.')
         if (!options.oEmoji) options.oEmoji = '🔵';
-        if (typeof options.oEmoji !== 'string')  throw new TypeError('INVALID_EMOJI: oEmoji should be a string.')
+        if (typeof options.oEmoji !== 'string')  throw new TypeError('INVALID_EMOJI: oEmoji bir dize olmalıdır.')
         
 
         if (!options.xColor) options.xColor = 'DANGER';
-        if (typeof options.xColor !== 'string')  throw new TypeError('INVALID_COLOR: xColor should be a string.')
+        if (typeof options.xColor !== 'string')  throw new TypeError('INVALID_COLOR: xColor bir dize olmalıdır.')
         if (!options.oColor) options.oColor = 'PRIMARY';
-        if (typeof options.oColor !== 'string')  throw new TypeError('INVALID_COLOR: oColor should be a string.')
+        if (typeof options.oColor !== 'string')  throw new TypeError('INVALID_COLOR: oColor bir dize olmalıdır.')
 
-        if (!options.askMessage) options.askMessage = 'Hey {opponent}, {challenger} challenged you for a game of Tic Tac Toe!';
-        if (typeof options.askMessage !== 'string')  throw new TypeError('ASK_MESSAGE: Ask Messgae must be a string.')
-        if (!options.cancelMessage) options.cancelMessage = 'Looks like they refused to have a game of Tic Tac Toe. \:(';
-        if (typeof options.cancelMessage !== 'string')  throw new TypeError('CANCEL_MESSAGE: Cancel Message must be a string.')
-        if (!options.timeEndMessage) options.timeEndMessage = 'Since the opponent didnt answer, i dropped the game!';
-        if (typeof options.timeEndMessage !== 'string')  throw new TypeError('TIME_END_MESSAGE: Time End Message must be a string.')
+        if (!options.askMessage) options.askMessage = 'Merhaba {opponent}, {challenger} size Tic Tac Toe oyunu için meydan okudu!';
+        if (typeof options.askMessage !== 'string')  throw new TypeError('ASK_MESSAGE: Ask Messgae bir dize olmalıdır.')
+        if (!options.cancelMessage) options.cancelMessage = 'Görünüşe göre Tic Tac Toe oynamayı reddetmişler. \:(';
+        if (typeof options.cancelMessage !== 'string')  throw new TypeError('CANCEL_MESSAGE: İptal Mesajı bir dize olmalıdır.')
+        if (!options.timeEndMessage) options.timeEndMessage = 'Rakip cevap vermeyince oyunu bıraktım!';
+        if (typeof options.timeEndMessage !== 'string')  throw new TypeError('TIME_END_MESSAGE: Zaman Bitiş Mesajı bir dize olmalıdır.')
 
-        if (!options.turnMessage) options.turnMessage = '{emoji} | Its now **{player}** turn!';
-        if (typeof options.turnMessage !== 'string')  throw new TypeError('TURN_MESSAGE: Turn Message must be a string.')      
-        if (!options.waitMessage) options.waitMessage = 'Waiting for the opponent...';
-        if (typeof options.waitMessage !== 'string')  throw new TypeError('WAIT_MESSAGE: Wait Message must be a string.')  
+        if (!options.turnMessage) options.turnMessage = '{emoji} | Şimdi sıra **{player}**!';
+        if (typeof options.turnMessage !== 'string')  throw new TypeError('TURN_MESSAGE: Dönüş Mesajı bir dize olmalıdır.')      
+        if (!options.waitMessage) options.waitMessage = 'Rakibi bekleyin...';
+        if (typeof options.waitMessage !== 'string')  throw new TypeError('WAIT_MESSAGE: Bekle Mesajı bir dize olmalıdır.')  
 
-        if (!options.gameEndMessage) options.gameEndMessage = 'The game went unfinished :(';
-        if (typeof options.gameEndMessage !== 'string')  throw new TypeError('GAME_END_MESSAGE: Game End Message must be a string.')
-        if (!options.winMessage) options.winMessage = '{emoji} | **{winner}** won the game!';
-        if (typeof options.winMessage !== 'string')  throw new TypeError('WIN_MESSAGE: Win Message must be a string.')
-        if (!options.drawMessage) options.drawMessage = 'It was a draw!';
-        if (typeof options.drawMessage !== 'string')  throw new TypeError('DRAW_MESSAGE: Draw Message must be a string.')
+        if (!options.gameEndMessage) options.gameEndMessage = 'Oyun bitmedi :(';
+        if (typeof options.gameEndMessage !== 'string')  throw new TypeError('GAME_END_MESSAGE: Oyun Bitiş Mesajı bir dize olmalıdır.')
+        if (!options.winMessage) options.winMessage = '{emoji} | **{winner}** oyunu kazandı!';
+        if (typeof options.winMessage !== 'string')  throw new TypeError('WIN_MESSAGE: Win Mesajı bir dize olmalıdır.')
+        if (!options.drawMessage) options.drawMessage = 'O bir çizimdi!';
+        if (typeof options.drawMessage !== 'string')  throw new TypeError('DRAW_MESSAGE: Draw Mesajı bir dize olmalıdır.')
 
 		this.options = options;
         this.message = options.message;
@@ -66,8 +66,8 @@ class TicTacToe {
         const opponent = this.opponent;
         const emoji = this.options.emoji ? this.options.emoji : '';
 
-        if (opponent.bot) return this.message.channel.send(`**${emoji} You can't play with bots!**`)
-        if (opponent.id === author.id) return this.message.channel.send(`**${emoji} You cannot play with yourself!**`)
+        if (opponent.bot) return this.message.channel.send(`**${emoji} Botlarla oynayamazsın!**`)
+        if (opponent.id === author.id) return this.message.channel.send(`**${emoji} Kendinle oynayamazsın!**`)
 
         const embed = new MessageEmbed()
         .setTitle(this.options.embed.title)
@@ -76,8 +76,8 @@ class TicTacToe {
             .replace('{opponent}', '<@!' + this.opponent.id + '>'))
         .setColor(this.options.green || this.options.embed.color)
         
-        let btn1 = new MessageButton().setLabel('Accept').setStyle('SUCCESS').setCustomId('accept')
-        let btn2 = new MessageButton().setLabel('Reject').setStyle('DANGER').setCustomId('reject')
+        let btn1 = new MessageButton().setLabel('Kabul et').setStyle('SUCCESS').setCustomId('accept')
+        let btn2 = new MessageButton().setLabel('Reddet').setStyle('DANGER').setCustomId('reject')
         let row = new MessageActionRow().addComponents(btn1, btn2);
         const askMsg = await this.message.channel.send({ embeds: [embed], components: [row] });
 
@@ -198,11 +198,11 @@ class TicTacToe {
 
 			if (this.isGameOver()) {
 				if (this.hasWon(PLAYER_2))
-				    this.gameOver({ result: "winner", name: this.opponent.username, emoji: this.getChip() }, msg); // OPPONENT WON
+				    this.gameOver({ result: "winner", name: this.opponent.username, emoji: this.getChip() }, msg); // RAKİP KAZANDI
 				else if (this.hasWon(PLAYER_1))
-				    this.gameOver({ result: "winner", name: this.message.author.username, emoji: this.getChip() }, msg) // AUTHOR WON
+				    this.gameOver({ result: "winner", name: this.message.author.username, emoji: this.getChip() }, msg) // YAZAR KAZANDI
 				else
- 				   this.gameOver({ result: "tie" }, msg) // TIE
+ 				   this.gameOver({ result: "tie" }, msg) // BAĞLAMAK
 			}
 			else {
 				// MAKE NEXT MOVE
@@ -228,7 +228,7 @@ class TicTacToe {
         const Embed = new MessageEmbed()
         .setColor(msg.embeds[0].color)
         .setAuthor(`${this.message.author.username} vs ${this.opponent.username}`)
-        .setDescription("**Game Over!** \n" + this.getResultText(result))
+        .setDescription("**Oyun bitti!** \n" + this.getResultText(result))
 
         for (let x = 0; x < msg.components.length; x++) {
 			for (let y = 0; y < msg.components[x].components.length; y++) {
@@ -295,7 +295,7 @@ class TicTacToe {
         else if (result.result === 'timeout')
             return this.options.gameEndMessage;
         else if (result.result === 'error')
-            return 'ERROR: ' + result.error;
+            return 'HATA: ' + result.error;
         else
             return this.options.winMessage.replace('{emoji}', result.emoji).replace('{winner}', result.name);
     }
